@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Create A New Blog Category{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>Add Category</h1>
+    <br/><br/>
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }} {# as_p는 모든 줄에 <p>태그 들어가는 거처럼 설정 해주는 거 ul,table 도 가능 #}
+            <button class="btn btn-dark">category</button></form>
+    </div>
+{% else %}
+You're not allowed here!
+{% endif %}
+{% endblock %}
